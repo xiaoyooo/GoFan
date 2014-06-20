@@ -7,10 +7,13 @@
 .metadata
 bin/
 tmp/
+/go/pkg/
+/go/Bin/
 *.tmp
 *.bak
 *.swp
 *~.nib
+*.exe
 local.properties
 .classpath
 .settings/
