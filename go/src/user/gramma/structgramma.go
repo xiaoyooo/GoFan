@@ -97,6 +97,8 @@ func useObjectMethod() {
 	fmt.Println(circle1.Area())
 
 	typeofwhat()
+
+	employeeTell()
 }
 
 type Rects []Rect
@@ -117,4 +119,37 @@ func typeofwhat() {
 
 	var loss Los = []int{1, 2, 3}
 	fmt.Println(loss.HowMany())
+}
+
+type Employee struct {
+	Person
+	Position string
+	Salary   int
+}
+
+type FirstLine struct {
+	Employee
+}
+
+type Manager struct {
+	Employee
+	ManLevel uint
+}
+
+func (e Employee) Tell() {
+	fmt.Printf("My name is %v. I am in %s position\n", e.name, e.Position)
+}
+
+func (e Manager) Tell() {
+	fmt.Printf("My name is %s. I am in %s position, level %d\n", e.name, e.Position, e.ManLevel)
+}
+
+func employeeTell() {
+	emp1 := Employee{Person: Person{name: "Steve Mona", age: 40}, Position: "Market Senior Acer", Salary: 500}
+	emp2 := FirstLine{Employee: Employee{Person: Person{name: "Steve Mona", age: 40}, Position: "Market Senior Acer", Salary: 500}}
+	emp3 := Manager{Employee: Employee{Person: Person{name: "Jerry Fonda", age: 40}, Position: "IT Support Manager", Salary: 400}, ManLevel: 3}
+
+	emp1.Tell()
+	emp2.Tell()
+	emp3.Tell()
 }
